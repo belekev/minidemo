@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './screens/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Daily from "./screens/Daily";
+import Earn from "./screens/Earn";
+import Referrals from "./screens/Referrals";
+import AirDrop from "./screens/AirDrop";
+import BottomNavigation from './components/BottomNavigation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <BottomNavigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/daily" element={<Daily />} />
+        <Route path="/earn" element={<Earn />} />
+        <Route path="/shares" element={<Referrals />} />
+        <Route path="/airdrop" element={<AirDrop />} />
+      </Routes>
+    </Router>
   );
 }
 
